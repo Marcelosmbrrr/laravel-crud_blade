@@ -1,1 +1,2 @@
-# laravel-crud_monolithic
+# About
+Monolithic basic crud built only with Laravel.
