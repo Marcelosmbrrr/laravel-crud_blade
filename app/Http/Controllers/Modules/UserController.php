@@ -80,7 +80,17 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            "name" => "required",
+            "email" => "required|unique:users,email,".$id
+        ]);
+
+        $user = $this->model->where("id", $id)->update($request->only(["name", "email"]));
+
+        // Notify alteration
+
+        return back()->with('status', 'Successful!');
     }
 
     /**

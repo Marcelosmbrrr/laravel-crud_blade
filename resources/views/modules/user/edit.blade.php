@@ -7,12 +7,13 @@
         <div class = "mb-2">
             <a class="btn btn-secondary" href="{{ route('dashboard') }}" role="button">Dashboard</a>
         </div>
-        <div class = "shadow-sm p-3 mb-5 bg-body rounded" style="width: auto; background-color: green;">
-            <form class = "p-3" method="POST" action="{{ route('user.update', $user->id) }}">
+        <div class = "shadow-sm p-3 mb-5 bg-body rounded" style="width: auto;">
+            <form class = "p-3" action="{{ route('user.update', $user->id) }}" method="POST">
+                @method("PUT")
                 @csrf
                 <div class="mb-3" style="width: 350px;">
                 <label for="name" class="form-label">Name</label>
-                <input name="email" type="email" class="form-control" id="name" value = "{{ $user->name }}">
+                <input name="name" type="text" class="form-control" id="name" value = "{{ $user->name }}">
                 @error('name')
                 <div class="form-text text-start text-danger">{{ $message }}</div>
                 @enderror

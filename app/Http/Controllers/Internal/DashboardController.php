@@ -20,7 +20,20 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $users = $this->model->all();
+        if(isset($request->search)){
+
+            $users = $this->model->where("id", $request->search)
+                ->orWhere("name", "like", "%".$request->search."%")
+                ->orWhere("email", "like", "%".$request->search."%")
+                ->get();
+           
+        }else{
+
+            $users = $this->model->all();
+
+        }
+
         return view("internal.dashboard", compact("users"));
+        
     }
 }
