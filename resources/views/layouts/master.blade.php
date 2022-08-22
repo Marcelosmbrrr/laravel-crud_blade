@@ -12,7 +12,7 @@
     </head>
     <style>
         body{
-            background-color: #333;
+            background-color: #222;
         }
     </style>
     <body class="font-sans antialiased">

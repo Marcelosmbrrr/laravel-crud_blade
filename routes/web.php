@@ -14,7 +14,9 @@ use App\Http\Controllers\Modules\{
     PostController
 };
 use App\Http\Controllers\Internal\{
-    DashboardController
+    DashboardController,
+    UsersPanelController,
+    PostsPanelController
 };
 
 // Guest redirect to /dashboard if the user is already authenticated
@@ -38,7 +40,9 @@ Route::middleware(['guest'])->group(function () {
 
 // Internal system routes
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', DashboardController::class)->name("dashboard");
+    Route::get('/dashboard-panel', DashboardController::class)->name("dashboard-panel");
+    Route::get('/users-panel', UsersPanelController::class)->name("users-panel");
+    Route::get('/posts-panel', PostsPanelController::class)->name("posts-panel");
     Route::view('/my-profile', "internal.my_profile")->name("my-profile");
     Route::get('/logout', LogoutController::class)->name("action.logout");
     Route::resource('user', UserController::class);

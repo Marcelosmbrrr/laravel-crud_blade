@@ -14,14 +14,14 @@
             @csrf
             <div class="mb-3" style="width: 350px;">
               <label for="name" class="form-label">Email address</label>
-              <input name="email" type="email" class="form-control" id="name">
+              <input name="email" type="email" class="form-control" id="name" value="{{ old('email') }}">
               @error('email')
               <div class="form-text text-start text-danger">{{ $message }}</div>
               @enderror
             </div>
             <div class="mb-3" style="width: 350px;">
               <label for="password" class="form-label">Password</label>
-              <input name="password" type="password" class="form-control" id="password">
+              <input name="password" type="password" class="form-control" id="password" value="{{ old('password') }}">
               @error('password')
               <div class="form-text text-start text-danger">{{ $message }}</div>
               @enderror

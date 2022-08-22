@@ -13,14 +13,14 @@
             <input name="token" type="text" class="form-control" id="token" hidden value="{{ $token }}">
             <div class="mb-3" style="width: 350px;">
                 <label for="email" class="form-label">Email</label>
-                <input name="email" type="email" class="form-control" id="email">
+                <input name="email" type="email" class="form-control" id="email" value="{{ old('email') }}">
                 @error('email')
                 <div class="form-text text-start text-danger">{{ $message }}</div>
                 @enderror
               </div>
             <div class="mb-3" style="width: 350px;">
               <label for="password" class="form-label">New password</label>
-              <input name="password" type="password" class="form-control" id="password">
+              <input name="password" type="password" class="form-control" id="password" value="{{ old('password') }}">
               @error('password')
               <div class="form-text text-start text-danger">{{ $message }}</div>
               @enderror

@@ -18,13 +18,13 @@ class LoginController extends Controller
     public function __invoke(LoginRequest $request)
     {
 
-        if (Auth::attempt($request->only(['email', 'password']), $request->remember)) {
+        if (Auth::attempt($request->only(['email', 'password']))) {
             $request->session()->regenerate();
 
             // Send notification 
             
             // Intended will redirect the user to where they intended to go before
-            return redirect()->intended('dashboard');
+            return redirect()->intended('dashboard-panel');
         }
  
         return back()->withErrors([
