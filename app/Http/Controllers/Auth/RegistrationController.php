@@ -24,10 +24,21 @@ class RegistrationController extends Controller
     public function __invoke(RegisterRequest $request)
     {
 
+        $filepath = env("DEFAULT_USER_IMAGE");
+
+        if(isset($request->image)){
+
+            $extension = $request->image->getClientOriginalExtension();
+            $filename = now().$extension;
+            $filepath = "storage/images/users/".$filename;
+            $request->image->storeAs("images/users/", $filepath);
+        }
+
         $user = $this->model->create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'image' => $filepath
         ]);
 
         $user->notify(new RegistrationNotification($user));

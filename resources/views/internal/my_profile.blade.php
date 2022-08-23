@@ -6,7 +6,7 @@
     <div class = "d-flex flex-column">
 
         <div class = "mb-2">
-            <a class="btn btn-secondary" href="{{ route('dashboard') }}" role="button">Dashboard</a>
+            <a class="btn btn-secondary" href="{{ route('dashboard-panel') }}" role="button">Dashboard</a>
         </div>
 
         <div class = "d-flex shadow-sm p-3 mb-5 bg-body rounded" style="width: auto;">

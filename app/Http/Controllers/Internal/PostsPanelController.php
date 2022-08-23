@@ -27,11 +27,12 @@ class PostsPanelController extends Controller
                 ->orWhere("title", "like", "%".$request->search."%")
                 ->orWhere("body", "like", "%".$request->search."%")
                 ->orWhere("footer", "like", "%".$request->search."%")
+                ->with(['users'])
                 ->get();
            
         }else{
 
-            $posts = $this->model->all();
+            $posts = $this->model->with(['users'])->get();
 
         }
 

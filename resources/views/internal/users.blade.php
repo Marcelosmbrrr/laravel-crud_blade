@@ -23,6 +23,7 @@
             <thead>
                 <tr>
                 <th scope="col">ID</th>
+                <th scope="col">Image</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Posts</th>
@@ -33,6 +34,9 @@
                 @foreach ($users as $index => $record)
                 <tr>
                     <th scope="row">{{$record->id}}</th>
+                    <td>
+                        <img src="{{ url($record->image) }}" class="rounded-circle mx-auto d-block" alt={{ "{$record->name} image"}} width="40px" height="40px">
+                    </td>
                     <td>{{$record->name}}</td>
                     <td>{{$record->email}}</td>
                     <td>{{count($record->posts)}}</td>

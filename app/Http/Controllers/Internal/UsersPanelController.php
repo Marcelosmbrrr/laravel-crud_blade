@@ -30,7 +30,7 @@ class UsersPanelController extends Controller
            
         }else{
 
-            $users = $this->model->all();
+            $users = $this->model->with(['posts'])->get();
 
         }
 

@@ -37,6 +37,13 @@
                 <label for="confirmation" class="form-label">Password confirmation</label>
                 <input name="password_confirmation" type="password" class="form-control" id="confirmation">
             </div>
+            <div class="mb-3" style="width: 350px;">
+                <label for="formFile" class="form-label">Choose your profile image</label>
+                <input class="form-control" type="file" id="formFile" accept="image/png, image/jpeg" name = "image">
+                @error('image')
+                <div class="form-text text-start text-danger">{{ $message }}</div>
+                @enderror
+            </div>
             @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}

@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
     {
         UserModel::create([
             "name" => "Administrator",
+            "image" => env("ADMIN_IMAGE"),
             "email" => env("ADMIN_EMAIL"),
             "password" => Hash::make(env("ADMIN_PASSWORD")),
             "email_verified_at" => date("Y-m-d H:i:s")

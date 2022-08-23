@@ -27,8 +27,7 @@
                     <th scope="col">Body</th>
                     <th scope="col">Footer</th>
                     <th scope="col">Creator</th>
-                    <th scope="col">Created at</th>
-                    <th scope="col">Updated at</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,9 +37,7 @@
                     <td>{{$record->title}}</td>
                     <td>{{$record->body}}</td>
                     <td>{{$record->footer}}</td>
-                    <td>Teste</td>
-                    <td>{{$record->created_at}}</td>
-                    <td>{{$record->updated_at}}</td>
+                    <td>{{$record->users->name}}</td>
                     <td>
                         <a class="btn btn-outline-primary btn-sm" href="{{ route('post.show', $record->id) }}" role="button">Show</a>
                         <a class="btn btn-outline-primary btn-sm" href="{{ route('post.edit', $record->id) }}" role="button">Edit</a>
